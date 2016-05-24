@@ -2,7 +2,7 @@
 
 (function () {
 	// private variables
-	var _host = '127.0.0.1';
+	var _host = 'localhost';
 	var _port = '8989';
 	var _events = [];
 	var _listeners = [
