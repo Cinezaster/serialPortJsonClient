@@ -155,8 +155,8 @@ export default class HostView extends Component {
 		          										<li className="collection-item" key={port.Name}>
 		          											{port.Name} 
 		          											{port.IsOpen? 
-		          												[<span key="text">(open {port.Baud} {port.BufferAlgorithm})</span>,
-		          												<a key='closer' onClick={that.closeSerialPort.bind(that, port.Name)} href="#!" className="secondary-content"><i className="material-icons">portable_wifi_off</i></a>]
+		          												[<span key="text"> ({port.Baud} {port.BufferAlgorithm})</span>,
+		          												<a key='closer' onClick={that.closeSerialPort.bind(that, port.Name)} href="#!" className="secondary-content"><i className="material-icons">import_export</i></a>]
 		          											:null}
 		          										</li>
 		          									)
