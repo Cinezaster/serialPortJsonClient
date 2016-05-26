@@ -18,6 +18,7 @@ export default class HostView extends Component {
 		this.setSerialPort = this.setSerialPort.bind(this);
 		this.restartSpjs = this.restartSpjs.bind(this);
 		this.reloadList = this.reloadList.bind(this);
+		this.reconnectToPort = this.reconnectToPort.bind(this);
 	}
 	changeValue (e) {
 		var value = this.refs.host_name.value;
@@ -65,7 +66,6 @@ export default class HostView extends Component {
 	}
 	connectSerialPort(e) {
 		var spjc = this.state.spjc;
-		var that = this;
 		spjc.connectWithSerialPort(this.state.serialConnection);
 	}
 	reloadList () {
@@ -75,6 +75,10 @@ export default class HostView extends Component {
 	closeSerialPort(serialPortName) {
 		var spjc = this.state.spjc;
 		spjc.closeSerialPort(serialPortName);
+	}
+	reconnectToPort(serialPortConnectionObj) {
+		var spjc = this.state.spjc;
+		spjc.connectWithSerialPort(serialPortConnectionObj);
 	}
 	disconnect (e) {
 		this.state.spjc.disconnect();
@@ -156,7 +160,7 @@ export default class HostView extends Component {
 		          											{port.Name} 
 		          											{port.IsOpen? 
 		          												[<span key="text"> ({port.Baud} {port.BufferAlgorithm})</span>,
-		          												<a key='closer' onClick={that.closeSerialPort.bind(that, port.Name)} href="#!" className="secondary-content"><i className="material-icons">import_export</i></a>]
+		          												<a key='closer' onClick={that.reconnectToPort.bind(that, {serialPort: port.Name, baudrate: port.Baud, buffer: port.BufferAlgorithm})} href="#!" className="secondary-content"><i className="material-icons">import_export</i></a>]
 		          											:null}
 		          										</li>
 		          									)
@@ -210,7 +214,7 @@ export default class HostView extends Component {
 								</div>
 							</div>
 						:
-							<DeviceCommunications/>
+							<DeviceCommunications spjc={this.state.spjc}/>
 						}
 					</div>
 				:null}
