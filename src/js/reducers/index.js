@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import spjcConnection from './wsconnections';
+import spjcConnection from './wsconnections'
 
 export default combineReducers({
-	spjcConnection
-});
+  spjcConnection
+})

@@ -3,25 +3,25 @@ import { spjcConnected, spjcClosed } from '../actions'
 import wsConnectionView from './../components/wsconnection'
 
 const mapStateToProps = (state, ownState) => {
-	return {
-		connection: state.spjcConnection
-	}
+  return {
+    connection: state.spjcConnection
+  }
 }
 
 const mapDispatchToPros = (dispatch, ownProps) => {
-	return {
-		spjcConnected: () => {
-			dispatch(spjcConnected())
-		},
-		spjcClosed: () => {
-			dispatch(spjcClosed())
-		}
-	}
+  return {
+    spjcConnected: () => {
+      dispatch(spjcConnected())
+    },
+    spjcClosed: () => {
+      dispatch(spjcClosed())
+    }
+  }
 }
 
 const WsConnection = connect(
 	mapStateToProps,
 	mapDispatchToPros
-) (wsConnectionView)
+)(wsConnectionView)
 
 export default WsConnection
