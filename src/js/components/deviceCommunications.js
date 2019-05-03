@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ObjectInspector from 'react-object-inspector'
+import ObjectInspector from 'react-inspector'
 
 export default class DeviceCommunications extends Component {
   constructor (props) {

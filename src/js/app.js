@@ -15,7 +15,10 @@ render(
   <div>
     <h1>Serial Port Json Client</h1>
     <div className='chip'>
-      <img src='https://avatars2.githubusercontent.com/u/188269?v=3&u=a47378432391435712022a2d53952785c85e8c66&s=140' alt='Toon Nelissen' /> by Cinezaster</div>
+        <img src='https://avatars2.githubusercontent.com/u/188269?v=3&u=a47378432391435712022a2d53952785c85e8c66&s=140' alt='Toon Nelissen' />
+        <a href='https://github.com/Cinezaster'> by Cinezaster</a>
+      
+    </div>
     <p>Test page for testing the client api for <a href='https://github.com/chilipeppr/serial-port-json-server' target='_blank'>Serial Port Json Server</a>.</p>
     <Provider store={store}>
       <WebSocketConnection />
